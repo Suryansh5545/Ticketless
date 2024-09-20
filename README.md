@@ -1,79 +1,66 @@
-# ticketless
+# Ticketless
 
-[![build](https://github.com/Suryansh5545/ticketless/actions/workflows/django.yml/badge.svg)](https://github.com/Suryansh5545/ticketless/actions/workflows/django.yml)
-![download](https://github.com/Suryansh5545/ticketless/assets/34577232/56101b5e-8dde-4b7e-9017-005419cb7077)
+A system designed to manage event registrations and ticketing for events that lack a dedicated checkout page.
 
-A System Made to Sell Event Tickets
+## Potential Users
 
-# For whom is this system build?
-This is build for the purpose of being a checkout page for events which doesn't have there own dedicated checkout page.
+Ticketless is built for small-scale events that don't have their own dedicated checkout pages, such as college fests, community events, and other informal gatherings.
 
-# Where did the idea came from to create this?
-The idea to create this came from the fact that many fest/events hosted by colleges speically uses manual methods like asking customers to fill a google form and then using excel for check in purposes. This method is very ineffective and require significant manpower. I was a part of this ineffective system last year when my college did the similar thing and put up a google form for ticket selling, with qr code of a upi account put up as a image to scan then give the transaction id.
+## Origin of the Idea
 
+The idea for Ticketless came from observing the manual methods used by many small events, especially those hosted by colleges, such as asking attendees to fill out Google Forms and using Excel sheets for check-ins. This approach is inefficient, requires significant manpower, and is prone to errors. Ticketless automates the ticketing and check-in processes, making event management smoother and more efficient.
 
-# What features does this system have?
-1. Ticket Generation with QR Code Support
-2. QR Scanning using WebCam from Admin panel
-3. Integration with Payment Gateways like Razorpay, Phonepe(Under Development)
-4. Sub Events support (If a fest have its own internal event which require another fee)
-5. Addon Items Support (Anything that is limited in stock and doesn't fit the category of Sub Events)
-6. Admin Page with Stats for Ticket Sale, Sub Event Sale, Addon and Total Check IN.
-7. Android APP for QR Scanning (A Anroid app will be far more faster and better at this then a webcam)(Under Development).
-8. Celery worker support to handle heavy task of ticket image generation.
-9. Webhooks to detect initation of Dispute or refund and disable the ticket or payment captured in case of late capture. This will mark the ticket paid and send a email to customer.(Razorpay Only for now)
-10. Constnat Evaluation of all ticket sold for the active event to check for there payment status. Which will make sure that all scenerios are covered of transaction failure or late success. (Razorpay Only for now)
+## Key Features
 
-# Is the system stable and tested for commercial use?
-As of now the System is not finished for a live production usage, i will update as soon as we can declare it stable.
-I am currently in process of getting a staging environment up for testing and a production environment for our upcoming Live Test run, with Sabrang 2023 at JKLU University.
+1. **Ticket Generation with QR Code Support**: Easily generate tickets with QR codes for streamlined check-ins.
+2. **QR Scanning via Webcam from Admin Panel**: Scan tickets directly using a webcam for quick verification.
+3. **Integration with Payment Gateway (Razorpay)**: Secure payment processing integrated with Razorpay.
+4. **Sub-Events Support**: Manage multiple sub-events within a main event seamlessly.
+5. **Addon Items Support**: Offer limited-stock items that don't fit the category of sub-events, like merchandise or special passes.
+6. **Admin Page with Analytics**: View stats on ticket sales, sub-event sales, addon sales, and total check-ins.
+7. **Android App for QR Scanning (Under Development)**: An app will offer faster and more reliable QR scanning than a webcam.
+8. **Celery Worker Support**: Handle heavy tasks such as ticket image generation without slowing down the main application.
+9. **Webhooks for Payment Monitoring (Razorpay)**: Automatically handle disputes or refunds, disable affected tickets, and send notifications to customers.
+10. **Constant Evaluation of Ticket Payment Status**: Monitor all sold tickets to ensure payment success and detect transaction failures, minimizing issues related to late captures. (Razorpay only)
 
-# Installation
-Setting up ticketless on your local machine is really easy. You can setup ticketless using docker: The steps are:
-1. install [docker](https://docs.docker.com/install/) on your machine.
+## System Stability
 
-2. Get the source code on to your machine via git.
+The system is currently under development and testing with "Sabrang 2024" at JK Lakshmipat University. It is not yet ready for live production use but is progressing towards stability.
 
-    ```shell
+## Installation
+
+Setting up Ticketless on your local machine is straightforward using Docker:
+
+1. **Install Docker**: Follow the instructions at [Docker Installation](https://docs.docker.com/install/).
+
+2. **Clone the Source Code**:
+
+    ```bash
     git clone https://github.com/Suryansh5545/ticketless.git ticketless && cd ticketless
     ```
 
-3. Build and run the Docker containers. This might take a while.
+3. **Build and Run the Docker Containers**: This may take some time.
 
-    ```
+    ```bash
     docker compose up --build
     ```
-4. To Test Email support or Razorpay integration edit the docker.env.example file and rename the new one to docker.env
-5. That's it. Open web browser and hit the URL [http://127.0.0.1:4200](http://127.0.0.1:4200). One user is created by default which are listed below -
 
-    **SUPERUSER-** username: `admin` password: `password`
+4. **Configure Environment Variables**: Edit `docker.env.example`, rename it to `docker.env`, and configure it to test email support or Razorpay integration.
 
-If you are facing any issue during installation, please feel free to reach out to me by mail [suryanshpathak5545@gmail.com](mailto:suryanshpathak5545@gmail.com)
+5. **Access the Application**: Open your browser and navigate to [http://127.0.0.1:4200](http://127.0.0.1:4200). A default superuser account is created:
 
-# Planned Updates
-1. Addition of more payment gateways Paytm and Phonepe(Under Development).
-2. Android APP (Under Development).
-3. Test Cases for most of the critical functions.
-4. Addition of a organizer user to be able to add event without admin help from frontend.
-5. Ability to host mutliple concurrently active events on the same site.
+    - **SUPERUSER**: 
+        - **Username**: `admin`
+        - **Password**: `password`
 
-# Screenshot (Early Development Phase)
-![image](https://github.com/Suryansh5545/ticketless/assets/34577232/1874be8f-f40d-4038-abc4-479b9cbd53b9)
-![image](https://github.com/Suryansh5545/ticketless/assets/34577232/62f31e56-ebfe-41b3-9cba-54f108022571)
-![image](https://github.com/Suryansh5545/ticketless/assets/34577232/631b3526-236a-4aff-bceb-0f7868f383d8)
-![image](https://github.com/Suryansh5545/ticketless/assets/34577232/9bb1fc2d-e409-401a-88c1-8f22e3e1b6be)
-![image](https://github.com/Suryansh5545/ticketless/assets/34577232/6f20f547-0a2a-4f52-a20b-af1c35f439de)
+## Planned Updates
 
+1. **Additional Payment Gateways**: Integration with Paytm and PhonePe (under development).
+2. **Android App**: An Android app is currently under development to enhance QR scanning capabilities.
+3. **Test Cases**: Implement test cases for critical functions to ensure reliability.
+4. **Organizer User Role**: Allow organizers to add events without admin assistance directly from the frontend.
+5. **Support for Multiple Concurrent Events**: Enable hosting of multiple active events on the same site.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.txt).
-
-Copyright (c) 2023 Suryansh Pathak
-
-See [LICENSE](LICENSE) for more details.
-
-
-
-
-
+This project is licensed under the [MIT License](LICENSE). For more details, see the [LICENSE](LICENSE) file.
