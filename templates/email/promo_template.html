@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Promo Code</title>
+    <style>
+        /* Add your inline CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+        .promo-code {
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .recipient-name {
+            font-weight: bold;
+        }
+        .signature {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .signature p {
+            font-size: 14px;
+        }
+        
+        .signature strong {
+            font-weight: bold;
+        }
+        
+        .signature a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .register-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none; /* Remove underline */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>We have exciting news for you!</h1>
+        <p>SABRANG’24, the most awaited jaw-dropping 3 days of the year, is just around the corner, and we couldn't be happier!</p>
+        <p>But as we gear up to welcome all our registrations, we give the utmost priority to our own JKLU students.</p>
+        <p>In fact, we've created a unique 10-character code for each one of you for a huge discount!</p>
+        <div class="promo-code">{{ promo_code }}</div>
+        <p><strong>Instructions on how to use the code:</strong></p>
+        <ol>
+            <li>Go to the form page.</li>
+            <li>Enter your name, email, and phone number. Make sure the formats are correct for the phone number and email.</li>
+            <li>On the right side, you will see an "Apply Coupon" button. Click it.</li>
+            <li>Paste your code into the provided field and click "Apply."</li>
+        </ol>
+        <p><strong>The form link:</strong><a href="https://sabrang.ticketless.online/"> https://sabrang.ticketless.online/</a></p>
+        <p>PS. You are always welcome to attend the event; this fee is to participate in 5 mind-blowing experiences!</p>
+        <!-- Register button as a link -->
+        <a href="https://sabrang.ticketless.online/" class="register-button">REGISTER NOW!!!</a>
+        <p>If you have any questions or need more information, please contact the following individuals:</p>
+        <p>Rahul Verma - Registration Head SABRANG'24<br>Contact: 9414828604</p>
+        <p>Vatsal Tambi - Registration Head SABRANG'24<br>Contact: 7357791090</p>
+    </div>
+    <div class="signature">
+        <p>
+          <strong>Team SABRANG'24</strong><br>
+          <em>18 October 2024 at 09:00 am – 20 October 2024 at 11:59 pm IST</em><br>
+          JK Lakshmipat University, Near Mahindra SEZ, Ajmer Road, Mahapura, Jaipur, Rajasthan, 302026, India<br>
+          <a href="https://maps.app.goo.gl/itAdY4H37fBJaP1i9">Venue Location</a><br>
+          E: sabrang2024@jklu.edu.in | M: +91-9414828604 | M: +91-7357791090
+        </p>
+    </div>
+</body>
+</html>

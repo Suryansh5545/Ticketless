@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Ticket</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<style>
+  body {
+    color: #fff; /* Replace with your desired color */
+}
+  .cardWrap {
+    width: 34em;
+    height: 30em; /* Adjust the height to match the rotated width */
+    margin-right: auto;
+    margin-bottom: 3em;
+    margin-left: auto;
+    position: relative;
+    transform-origin: 50% 50%;
+    transform: translateX(-10%) translateY(10%) rotate(90deg);
+    background: #000000;
+  }
+  
+  
+  .card {
+    background: #190C3D;
+    height: 13em;
+    float: left;
+    position: relative;
+    padding: 1em;
+    margin-top: 120px;
+  }
+  
+  .cardLeft {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 16em;
+    margin-left: 40px;
+  }
+  
+  .cardRight {
+    width: 7em;
+    border-left: 0.18em dashed #000000;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .cardRight:before, .cardRight:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.9em;
+    height: 0.9em;
+    background: #000000;
+    border-radius: 50%;
+    left: -0.5em;
+  }
+  .cardRight:before {
+    top: -0.4em;
+  }
+  .cardRight:after {
+    bottom: -0.4em;
+  }
+  
+  h1 {
+    transform: translateX(-45%) translateY(103%) rotate(270deg) scale(0.35);
+  }
+  .title {
+    transform: rotate(270deg);
+    font-size: 0.50em;
+    position: absolute;
+    top: 63px;
+    right: 88px;
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .name {
+    transform: rotate(270deg);
+    font-size: 0.7em;
+    position: absolute;
+    right: 57px;
+    top: 59px;
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .event {
+    transform: rotate(270deg);
+    font-size: 0.65em;
+    position: absolute;
+    top: 48px;
+    width: 80%;
+    right: -5px;
+    margin: 5%;
+    height: 100px; /* Set a fixed height */
+    overflow: hidden; /* Hide overflowing content */
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .student {
+    transform: rotate(270deg);
+    font-size: 0.6em;
+    position: absolute;
+    right: -114px;
+    top: 47px;
+    margin: 5%;
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .location {
+    transform: rotate(270deg);
+    font-size: 0.6em;
+    position: absolute;
+    right: -134px;
+    top: 49px;
+    margin: 5%;
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .time {
+    transform: rotate(270deg);
+    font-size: 0.6em;
+    position: absolute;
+    right: -134px;
+    top: -75px;
+    margin: 5%;
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+  }
+  .image-bar-left {
+    transform: rotate(270deg);
+    position: relative;
+    left: 3%;
+    top: 65%;
+    width: 7%;
+  }
+  .image-bar-right {
+    position: relative;
+    left: 0.5%;
+    top: 15%;
+    transform: rotate(270deg) scale(0.8);
+    width: 10%;
+  }
+  .image-bar-sponsor1 {
+    position: relative;
+    left: 1.5%;
+    top: 14%;
+    transform: rotate(270deg);
+    width: 10%;
+  }
+  
+  .image-bar-sponsor2 {
+    position: relative;
+    left: 1.5%;
+    top: 14%;
+    transform: rotate(270deg);
+    width: 10%;
+  }
+  
+  .number {
+    text-align: center;
+    text-transform: uppercase;
+    transform: rotate(270deg);
+  }
+  .number h3 {
+    margin: 1.5em 0 0 0;
+    font-size: 1.3em;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .qrcode {
+    rotate: 270deg;
+    height: 120px;
+  }
+  
+  .qrcode img {
+    height: 100%;
+  }
+
+</style>
+<body>
+<!-- partial:index.partial.html -->
+<div class="cardWrap">
+  <div class="card cardLeft">
+    <h1><img src="https://storageapi.ticketless.online/ticketless2/sabrang/ticket_generation/SABRANG2.svg"></h1>
+    <div class="title">
+      <h2>{{date}}</h2>
+    </div>
+    <div class="name">
+      <h2>{{artistName}}</h2>
+    </div>
+    <div class="event">
+      <h2>{% for sub_event in doors %}
+			  {{ sub_event }}{% if not forloop.last %}, {% endif %}
+			  {% if forloop.counter|divisibleby:4 %}<br>{% endif %}
+			{% endfor %}</h2>
+    </div>
+    <div class="student">
+      <h2>{{ticketType}}</h2>
+    </div>
+    <div class="location">
+      <h2>{{location}}</h2>
+    </div>
+    <div class="time">
+      <h2></h2>
+    </div>
+  </div>
+  <div class="card cardRight">
+    <div class="qrcode">
+      <img src="{{barcodeImageURL}}">
+    </div>
+    <div class="number">
+      <h3>{{ticketNumber}}</h3>
+    </div>
+  </div>
+
+    <img class="image-bar-left" src="https://storageapi.ticketless.online/ticketless2/sabrang/ticket_generation/jklu_logo.png">
+    <img class="image-bar-right" src="https://storageapi.ticketless.online/ticketless2/sabrang/ticket_generation/peacock_white.svg">
+    <img class="image-bar-sponsor1" src="https://storageapi.ticketless.online/ticketless2/sabrang/ticket_generation/Blank.png">
+    <img class="image-bar-sponsor2" src="https://storageapi.ticketless.online/ticketless2/sabrang/ticket_generation/Blank.png">
+</div>
+<!-- partial -->
+  
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABRANG 2023 Registration</title>
+    <style>
+        /* Add your inline CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .signature {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 20px;
+            font-style: italic;
+          }
+          
+          .signature p {
+            font-size: 14px;
+          }
+          
+          .signature strong {
+            font-weight: bold;
+          }
+          
+          .signature a {
+            text-decoration: none;
+            color: #007bff;
+          }
+          
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hi {{ recipient_name }},</h1>
+        <h1>Congratulations!</h1>
+        <p>We are reaching out to thank you for registering for SABRANG 2024. It will surely be a memorable experience for you. Gear up yourself to compete with the top candidates. Let the roller coaster ride begin!!</p>
+        <p>Your E Ticket is attached with this email.</p>
+        <p>Below is the list of the events that you have registered for and its coordinators' names with their phone numbers:</p>
+        <ol>
+            {% for sub_event in doors %}
+            <li>{{ sub_event.0 }} - Coordinator: {{ sub_event.1 }} (Contact: {{ sub_event.2 }})</li>
+            {% endfor %}
+        </ol>
+        <p>Additionally, there are 4 mini-events in which participants are not required to register in advance and can join directly:</p>
+        <ul>
+            <li>House Full - Coordinator: Ayush Kothari (Contact: 9649810525)</li>
+            <li>Q Factor - Coordinator: Ashmita Agrawal (Contact: 6376067114)</li>
+            <li>Metaphor - Coordinator: Naman Jain (Contact: 9931971500)</li>
+            <li>Dare & Chair - Coordinator: Niharika Sharma (Contact: 9875711225)</li>
+        </ul>
+        <p>Your presence at the event will definitely make an everlasting impact. Mark your calendars and brush up your skills. Give it your best shot.</p>
+        <p>Please go through our <a href="{{terms}}">terms and conditions</a>.</p>
+        <p>Note: Entry will be closed by 07:00 pm</p>
+        <p class="contact-info">For more details or any other queries, please visit <a href="https://sabrang.jklu.edu.in/">https://sabrang.jklu.edu.in/</a> or contact the undersigned:</p>
+        <p>Rahul Verma - Registration Head SABRANG'24<br>Contact: 9414828604</p>
+        <p>Vatsal Tambi - Registration Head SABRANG'24<br>Contact: 7357791090</p>
+    </div>
+    <div class="signature">
+        <p>
+          <strong>Team SABRANG'24</strong><br>
+          <em>18 October 2024 at 09:00 am – 20 October 2024 at 11:59 pm IST</em><br>
+          JK Lakshmipat University, Near Mahindra SEZ, Ajmer Road, Mahapura, Jaipur, Rajasthan, 302026, India<br>
+          <a href="https://maps.app.goo.gl/itAdY4H37fBJaP1i9">Venue Location</a><br>
+          E: sabrang2024@jklu.edu.in | M: +91-9414828604 | M: +91-7357791090
+        </p>
+      </div>
+      
+</body>
+</html>
